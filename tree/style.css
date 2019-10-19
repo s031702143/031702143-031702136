@@ -1,0 +1,46 @@
+/* container style */
+.source-data {
+  display: flex;
+}
+.source-data label {
+  margin-right: 6px;
+  display: block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 120px;
+}
+.source-data textarea {
+  margin-right: 6px;
+  display: block;
+  background-color: lemonchiffon;
+
+}
+.tree-action button {
+  width: 200px;
+  margin-top: 12px;
+  margin-left: 100px;
+ 
+}
+
+.tree-group {
+  width: 100%;
+}
+.tree-group .tree {
+  text-align: center;
+}
+
+/* tree style */
+.node circle {
+  fill: #fff;
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+.node text {
+  font: 17px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: burlywood;
+  stroke-width: 2px;
+}

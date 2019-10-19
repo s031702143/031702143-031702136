@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="./lib/d3.v5.min.js"></script>
+    <title>Tree</title>
+</head>
+
+<body>
+    <div class="source-data">
+        <label for="data-area">请输入:</label>
+        <textarea id="data-area" rows="8" cols="36"></textarea>
+    </div>
+    <div class="tree-action">
+        <button id="btn-calculate">OK</button>
+    </div>
+    <div class="tree-group" id="tree-group">
+        <!-- tree -->
+    </div>
+</body>
+<script src="./tree.js"></script>
+<script src="./app.js"></script>
+<script>
+    window.onload = function () {
+        document.getElementById('btn-calculate').onclick = function () {
+            let data = document.getElementById('data-area').value
+            if (!data) {
+                return alert('Please Input Data')
+            }
+
+            console.info(data)
+            try {
+                let treeDataList = extractData(data)
+                console.info(treeDataList)
+                for (let i = 0; i < treeDataList.length; i++) {
+                    let div = document.createElement("div");
+                    let id = 'tree' + i
+
+                    div.id = id
+                    div.class = 'tree'
+                    document.getElementById('tree-group').appendChild(div)
+
+                    let treeData = parseTreeData(treeDataList[i])
+                    createTree(treeData, '#' + id)
+                }
+            } catch (err) {
+                console.error(err)
+                return alert('数据格式不正确，请检查')
+            }
+
+
+        }
+    }
+</script>
+<script>
+</script>
+</html>
